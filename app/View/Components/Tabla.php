@@ -11,7 +11,7 @@ class Tabla extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public array $valores=[])
+    public function __construct(public string $estilo="", public array $valores=[])
     {
         //
     }

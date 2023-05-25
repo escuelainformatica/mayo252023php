@@ -1,5 +1,5 @@
 <table class="table table-striped">
-    <thead class="thead-dark">
+    <thead class="{{$estilo}}">
         <tr>
             @foreach ($campos as $campo)
                 <th>{{$campo}}</th>    

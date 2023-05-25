@@ -31,9 +31,9 @@
 </table>
 
 <h1>usando componente v2</h1>
-<x-tabla  :valores="$paises" />
+<x-tabla estilo="thead-white" :valores="$paises" />
 
 
-<x-tabla  :valores="$productos" />
+<x-tabla estilo="thead-dark"  :valores="$productos" />
 
 @endsection
