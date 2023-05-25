@@ -79,3 +79,85 @@ maestro.blade.php
 
     @section("otrocontenido","esto va en el yield")
 ```
+
+## agregar un componente.
+
+En artisan, cree un componente nuevo con
+
+```
+php artisan make:component NombrComponente
+```
+
+Esto va a crear una clase y una vista.
+
+### editar la clase del componente
+
+en la carpeta /app/views/components se guarda las clases de los componentes
+
+```php
+class Alert extends Component
+{
+    /**
+     * Create a new component instance.
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     */
+    public function render(): View|Closure|string
+    {
+        
+        return view('components.alert');
+    }
+}
+```
+> La vista es solo una vista regular, no tiene ningun comportamiento especial.
+
+### llamar a un componente.
+
+Para llamara a un componente, hay que registrarlo.
+Se podria registrar en la funcion boot() de algun proveedor cargado (app/providers) o se llama manualmente antes de usarlo
+
+```php
+    Blade::component('nombrecomp', Alert::class);
+```
+
+Una vez registrado, en el template se ocupa de la siguiente manera
+
+
+```html
+    <x-nombrecomp />
+```
+
+### pasar valores a un componente.
+Se pueden pasar valores fijos o variables al componente.
+
+```html
+    <x-nombrecomp fijo="hola" :variable="$valor" />
+```
+
+Para capturar los valores en la clase, se usa lo siguiente
+
+```php
+class Alert extends Component
+{
+    /**
+     * Create a new component instance.
+     */
+    public function __construct(public string $fijo,public string $variable)
+    {
+        //
+    }
+    public function render(): View|Closure|string
+    {
+        // return view('components.alert',['fijo'=>$fijo,'variable'=>$variable]); no es necesario
+        return view('components.alert');
+    }
+}
+```
+
+> Cuando llamo a la vista view('nombrevista'), no necesito pasar manualmente esos valores. Por defecto se pasan.
