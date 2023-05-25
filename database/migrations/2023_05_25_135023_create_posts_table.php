@@ -11,6 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
+
         Schema::connection("sqlite")->create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

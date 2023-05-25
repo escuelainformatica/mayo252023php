@@ -19,6 +19,9 @@ Para ocupar dos bases de datos se necesita editar la configuracion de /config/da
         ],
 ```
 
+> Si se necesita conectar a base de datos distintas, no es necesario crear una nueva conexion.
+
+
 ## en la variable del entorno
 Agregar las variables que se quieren usar. En este caso DB_DATABASE_2 es la siguiente variable del entorno:
 
@@ -45,3 +48,6 @@ Para determinar la conexion a usar (Database), se puede usar:
 Schema::connection("sqlite")->...
 DB::connection('sqlite')->...
 ```
+
+# Blade (templates)
+
