@@ -51,3 +51,31 @@ DB::connection('sqlite')->...
 
 # Blade (templates)
 
+## incluir un template
+
+```php
+@include("nombretemplate")
+```
+
+## extender un template
+
+maestro.blade.php
+```html
+...
+    @section("contenido")
+    @show
+
+    @yield("otrocontenido","valor defecto")
+...
+```
+
+* section y yield son similares, salvo que yield estan mas enfocados en mostrar un contenido corto.
+
+```html
+@extends("maestro")
+    @section("contenido")
+    <h1>el contenido</h1>
+    @endsection
+
+    @section("otrocontenido","esto va en el yield")
+```
