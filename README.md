@@ -1,7 +1,5 @@
 # Ocupar dos base de datos
-
 Para ocupar dos bases de datos se necesita editar la configuracion de /config/database.php y agregar otra conexion.
-
 ```php
         'sqlite' => [
             'driver' => 'sqlite',
